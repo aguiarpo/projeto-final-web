@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +20,9 @@ public class User {
     private Long Id;
     private String name;
     @Column(unique = true)
+    @Email
     private String email;
+    @Size(min = 8)
     private String password;
     @Enumerated(EnumType.STRING)
     private TypeUsers type;
