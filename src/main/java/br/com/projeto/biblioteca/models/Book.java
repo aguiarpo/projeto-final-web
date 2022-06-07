@@ -1,6 +1,5 @@
 package br.com.projeto.biblioteca.models;
 
-import br.com.projeto.biblioteca.models.enums.Genre;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,13 +16,18 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private Integer year;
+    @Column(unique = true)
     private String barcode;
     private String name;
     private String author;
     private String edition;
     private String status;
-    @Enumerated(EnumType.STRING)
-    private Genre genre;
-    @OneToMany(mappedBy = "user")
+    @ManyToMany
+    @JoinTable(
+            name = "genres_books",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id"))
+    private List<Genre> genres = new ArrayList<Genre>();
+    @OneToMany(mappedBy = "book")
     private List<Loan> loans = new ArrayList<Loan>();
 }

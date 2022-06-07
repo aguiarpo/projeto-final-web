@@ -18,9 +18,7 @@ public class Loan {
     private LocalDate initialDate = LocalDate.now();
     private LocalDate finalDate = LocalDate.now().plusDays(7);
     @ManyToOne
-    @JsonIgnore
     private User user;
     @ManyToOne
-    @JsonIgnore
     private Book book;
 }
