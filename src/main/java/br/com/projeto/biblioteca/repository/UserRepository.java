@@ -1,6 +1,5 @@
 package br.com.projeto.biblioteca.repository;
 
-import br.com.projeto.biblioteca.models.Loan;
 import br.com.projeto.biblioteca.models.User;
 import br.com.projeto.biblioteca.models.enums.TypeUsers;
 import org.springframework.data.domain.Page;

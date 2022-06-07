@@ -1,6 +1,5 @@
 package br.com.projeto.biblioteca.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 

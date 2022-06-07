@@ -15,13 +15,12 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-    private Integer year;
+    private Short year;
     @Column(unique = true)
     private String barcode;
     private String name;
     private String author;
-    private String edition;
-    private String status;
+    private Byte edition;
     @ManyToMany
     @JoinTable(
             name = "genres_books",

@@ -1,6 +1,5 @@
 package br.com.projeto.biblioteca.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +16,7 @@ public class Loan {
     private Long id;
     private LocalDate initialDate = LocalDate.now();
     private LocalDate finalDate = LocalDate.now().plusDays(7);
+    private Boolean lending = true;
     @ManyToOne
     private User user;
     @ManyToOne
