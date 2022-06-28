@@ -19,6 +19,11 @@
     <div class="alert"  th:if="${#fields.hasErrors('edition')}" th:errors="*{edition}"></div>
     <div class="alert"  th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></div>
     <div>
+      <input th:field="*{quant}" th:errorclass="invalid" placeholder="Quantidade" id="quant" type="number">
+      <label id="quant2" for="quant">Quantidade</label>
+    </div>
+    <div class="alert"  th:if="${#fields.hasErrors('year')}" th:errors="*{quant}"></div>
+    <div>
       <input th:field="*{barcode}" th:errorclass="invalid"  placeholder="Código de Barras" id="barcodeBook" type="number">
       <label for="barcodeBook">Código de Barras</label>
     </div>

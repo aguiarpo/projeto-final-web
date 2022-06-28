@@ -44,6 +44,15 @@ public class TestInit {
             userRepository.save(admin);
         }
 
+        if (userRepository.findByEmail("1@gmail.com") == null) {
+            User admin = new User();
+            admin.setEmail("1@gmail.com");
+            admin.setPassword("12345678");
+            admin.setName("Eduardo Aguiar");
+            admin.setType(TypeUsers.USER);
+            userRepository.save(admin);
+        }
+
 
         urlList.add("https://images-na.ssl-images-amazon.com/images/I/41l0ZeWjsgL._SY344_BO1,204,203,200_QL70_ML2_.jpg");
         urlList.add("https://images-na.ssl-images-amazon.com/images/I/51DguzEMjeS._SX331_BO1,204,203,200_.jpg");
@@ -61,16 +70,16 @@ public class TestInit {
                 Genre saved = genreRepository.save(genre);
                 genres.add(saved);
             }
-                for (int x = 0; x < 6; x++) {
-                    if(bookRepository.findByBarcode("32131" + x) == null){
+                for (int x = 1; x < 7; x++) {
+                    if(bookRepository.findByBarcode("3213" + x) == null){
                         Book book = new Book();
                         book.setYear((short) 1000);
                         book.setEdition((byte) x);
                         book.setAuthor("Autor" + x);
-                        book.setBarcode("32131" + x);
+                        book.setBarcode("3213" + x);
                         book.setName("Nome" + x);
-                        // book.setQuant(3);
-                        book.setUrl(urlList.get(x));
+                        book.setQuant(x);
+                        book.setUrl(urlList.get(x-1));
                         book.setGenres(genres);
                         bookRepository.save(book);
                     }

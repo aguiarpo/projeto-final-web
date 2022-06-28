@@ -66,6 +66,7 @@ public class BookController {
         book.setAuthor(bookOptional.get().getAuthor());
         book.setBarcode(bookOptional.get().getBarcode());
         book.setYear(bookOptional.get().getYear());
+        book.setQuant(bookOptional.get().getQuant());
         book.setUrl(bookOptional.get().getUrl());
         List<Short> idList = new ArrayList<Short>();
         for (Genre genre: bookOptional.get().getGenres()) {

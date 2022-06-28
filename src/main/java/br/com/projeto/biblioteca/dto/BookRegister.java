@@ -34,10 +34,13 @@ public class BookRegister {
     private Byte edition = 1;
     @NotEmpty(message = "Atribua ao menos um gênero ao livro")
     private List<Short> genres;
+    @Min(value = 1, message = "O valor mínimo deve ser 1")
+    private Integer quant = 1;
 
     public Book toBook(){
         Book book = new Book();
         book.setName(name);
+        book.setQuant(quant);
         book.setAuthor(author);
         book.setEdition(edition);
         book.setYear(year);
@@ -59,6 +62,7 @@ public class BookRegister {
         book.setName(name);
         book.setAuthor(author);
         book.setEdition(edition);
+        book.setQuant(quant);
         book.setYear(year);
         book.setUrl(url);
         book.setBarcode(barcode);

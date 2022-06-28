@@ -29,6 +29,9 @@ public class LoanService {
         return  loanRepository.findByUserEmailStartingWith(pageable, email);
     }
 
+    public int finByCount(Long id){
+        return  loanRepository.findByCount(id);
+    }
 
     public Optional<Loan> findById(Long id){
         return  loanRepository.findById(id);

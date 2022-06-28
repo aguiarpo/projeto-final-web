@@ -7,11 +7,12 @@
 <main>
     <section><span class="genero" th:text="${genre?.name}"></span></section>
     <section>
-        <article th:href="@{/book/{page}(page=${book?.id})}" class="article" th:each="book, iStat : ${books}">
+        <article th:if="${book?.quant != 0}" th:href="@{/book/{page}(page=${book?.id})}" class="article" th:each="book, iStat : ${books}">
             <div><img th:src="${book?.url}"></div>
             <div><span class="title">Nome:</span><span th:text="' ' + ${book?.name}"></span></div>
             <div><span class="title">Autor:</span><span th:text="' ' + ${book?.author}"></span></div>
             <div><span class="title">Edição:</span><span th:text="' ' + ${book?.edition}"></span></div>
+            <div><span class="title">Quantidade:</span><span th:text="' ' + ${book?.quant}"></span></div>
             <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Empréstimo</a>
             <div id="modal1" class="modal">
                 <div class="modal-content">

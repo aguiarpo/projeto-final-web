@@ -54,6 +54,10 @@ public class HomeController {
     public String getBooksALL(Model model) {
         List<Genre> genres = bookService.findAllGenre();
         List<Book> books = bookService.findAllBook();
+        for (Book book: books) {
+            int count = loanService.finByCount(book.getId());
+            book.setQuant(book.getQuant() - count);
+        }
         model.addAttribute("genres", genres);
         model.addAttribute("books", books);
         return "books";

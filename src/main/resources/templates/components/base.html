@@ -21,7 +21,6 @@
       <ul class="right hide-on-med-and-down">
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Gêneros<i class="material-icons right">arrow_drop_down</i></a></li>
         <li><a href="/" >Home</a></li>
-        <li><a  sec:authorize="isAuthenticated()" >Empréstimos</a></li>
         <li><a  sec:authorize="!isAuthenticated()" href="/login">Login</a></li>
         <li><a onclick="document.querySelector('#form-login').submit()" sec:authorize="isAuthenticated()" href="#">Logout</a></li>
         <form id="form-login" th:action="@{/logout}" method="post"></form>
@@ -34,24 +33,27 @@
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
-        <h5 class="white-text">Footer Content</h5>
-        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        <h5 class="white-text">Informações</h5>
+        <p class="grey-text text-lighten-4">Lorem Ipsum is simply dummy text of
+          the printing and typesetting industry. Lorem
+          Ipsum has been the industry's standard dummy
+          text ever since the 1500s</p>
       </div>
       <div class="col l4 offset-l2 s12">
         <h5 class="white-text">Links</h5>
         <ul>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Xvideos</a></li>
         </ul>
       </div>
     </div>
   </div>
   <div class="footer-copyright">
     <div class="container">
-      © 2014 Copyright Text
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      © 2022 Biblioteca.com.br
+      <a class="grey-text text-lighten-4 right" href="#!">Sobre</a>
     </div>
   </div>
 </footer>

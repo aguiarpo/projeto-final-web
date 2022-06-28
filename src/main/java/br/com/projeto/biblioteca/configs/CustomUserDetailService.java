@@ -27,14 +27,10 @@ public class CustomUserDetailService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         br.com.projeto.biblioteca.models.User user = Optional.ofNullable(userRepository.findByEmail(email))
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        List<GrantedAuthority> authorityListAdmin = AuthorityUtils.createAuthorityList("ROLE_ADMIN", "ROLE_LIBRARIAN", "ROLE_USER");
-        List<GrantedAuthority> authorityListLibrarian = AuthorityUtils.createAuthorityList("ROLE_LIBRARIAN");
+        List<GrantedAuthority> authorityListAdmin = AuthorityUtils.createAuthorityList("ROLE_ADMIN", "ROLE_USER");
         List<GrantedAuthority> authorityListUser = AuthorityUtils.createAuthorityList("ROLE_USER");
         List<GrantedAuthority> nivelUser = null;
         switch (user.getType()){
-            case LIBRARIAN:
-                nivelUser = authorityListLibrarian;
-                break;
             case ADMIN:
                 nivelUser = authorityListAdmin;
                 break;

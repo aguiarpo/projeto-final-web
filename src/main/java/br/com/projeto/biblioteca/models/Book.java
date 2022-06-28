@@ -22,7 +22,7 @@ public class Book {
     private String author;
     private Byte edition;
     private String url;
-    //private Integer quant = 1;
+    private Integer quant = 1;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "genres_books",
