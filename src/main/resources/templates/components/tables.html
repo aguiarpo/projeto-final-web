@@ -1,0 +1,11 @@
+<article th:fragment="table">
+  <nav th:replace="~{components/breadcrumbs :: breadcrumbs}"></nav>
+  <div th:replace="~{components/user/table :: tableUser}"></div>
+  <div th:replace="~{components/book/table :: tableBook}"></div>
+  <div th:replace="~{components/genre/table :: tableGenre}"></div>
+  <div th:replace="~{components/loan/table :: tableLoan}"></div>
+  <div th:replace="~{components/genre/add :: addGenre}"></div>
+  <div th:replace="~{components/book/add :: addBook}"></div>
+  <div th:replace="~{components/genre/edit :: editGenre}"></div>
+  <div th:replace="~{components/book/edit :: editBook}"></div>
+</article>

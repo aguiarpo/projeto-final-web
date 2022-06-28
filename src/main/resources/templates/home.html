@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head th:replace="~{components/base :: head('Home')}"></head>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/home.css}">
+    <body>
+        <header th:replace="~{components/base :: header}"></header>
+
+        <main>
+            <div class="parallax-container">
+                <div class="parallax"><img th:src="@{/image/home2.jpg}"></div>
+            </div>
+            <div class="section white">
+                <div class="row container">
+                    <h2 class="header">Parallax</h2>
+                    <p class="text">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
+                </div>
+            </div>
+            <div class="parallax-container">
+                <div class="parallax"><img th:src="@{/image/home1.jpg}"></div>
+            </div>
+        </main>
+
+        <footer th:replace="~{components/base :: footer}"></footer>
+    </body>
+</html>

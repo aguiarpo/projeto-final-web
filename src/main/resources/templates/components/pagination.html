@@ -1,0 +1,43 @@
+<div th:fragment="pagination"  th:if="${total > 0}" class="pagination">
+  <ul>
+    <li th:switch="${console}" th:if="${paginationAtual != 0}">
+      <a th:case="'USER'" th:href="@{/admin/console/user?page={page}(page=${paginationAtual-1})}">
+        <i class="material-icons">chevron_left</i>
+      </a>
+      <a th:case="'BOOK'" th:href="@{/admin/console/book?page={page}(page=${paginationAtual-1})}">
+        <i class="material-icons">chevron_left</i>
+      </a>
+      <a th:case="'GENRE'" th:href="@{/admin/console/genre?page={page}(page=${paginationAtual-1})}">
+        <i class="material-icons">chevron_left</i>
+      </a>
+      <a th:case="'LOAN'" th:href="@{/admin/console/loan?page={page}(page=${paginationAtual-1})}">
+        <i class="material-icons">chevron_left</i>
+      </a>
+    </li>
+    <li th:each="i: ${#numbers.sequence(0, pagination)}"
+        th:classappend="${paginationAtual == i ? 'active' : ''}">
+      <a th:if="${console == 'USER'}" th:text="${i+1}"
+         th:href="@{/admin/console/user?page={page}(page=${i})}"></a>
+      <a th:if="${console == 'LOAN'}" th:text="${i+1}"
+         th:href="@{/admin/console/loan?page={page}(page=${i})}"></a>
+      <a th:if="${console == 'BOOK'}" th:text="${i+1}"
+         th:href="@{/admin/console/book?page={page}(page=${i})}"></a>
+      <a th:if="${console == 'GENRE'}" th:text="${i+1}"
+         th:href="@{/admin/console/genre?page={page}(page=${i})}"></a>
+    </li>
+    <li th:switch="${console}" th:if="${pagination != paginationAtual}" class="waves-effect">
+      <a th:case="'USER'" th:href="@{/admin/console/user?page={page}(page=${paginationAtual+1})}">
+        <i class="material-icons">chevron_right</i>
+      </a>
+      <a th:case="'LOAN'" th:href="@{/admin/console/loan?page={page}(page=${paginationAtual+1})}">
+        <i class="material-icons">chevron_right</i>
+      </a>
+      <a th:case="'BOOK'" th:href="@{/admin/console/book?page={page}(page=${paginationAtual+1})}">
+        <i class="material-icons">chevron_right</i>
+      </a>
+      <a th:case="'GENRE'" th:href="@{/admin/console/genre?page={page}(page=${paginationAtual+1})}">
+        <i class="material-icons">chevron_right</i>
+      </a>
+    </li>
+  </ul>
+</div>

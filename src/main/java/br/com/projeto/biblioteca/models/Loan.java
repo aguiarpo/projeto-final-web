@@ -17,6 +17,7 @@ public class Loan {
     private LocalDate initialDate = LocalDate.now();
     private LocalDate finalDate = LocalDate.now().plusDays(7);
     private Boolean lending = true;
+    private Boolean retired = false;
     @ManyToOne
     private User user;
     @ManyToOne

@@ -1,0 +1,13 @@
+main > img{
+    width: 500px;
+    height: 1000px;
+    margin: auto;
+}
+
+main{
+    display: flex;
+    padding-top: 90px;
+    width: 100%;
+    margin-bottom: 50px;
+    flex-direction: column;
+}

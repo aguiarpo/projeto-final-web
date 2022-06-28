@@ -1,0 +1,37 @@
+<div th:fragment="tableBook" th:case="'BOOK'">
+  <table class="responsive-table">
+    <thead>
+    <tr>
+      <th>Imagem</th>
+      <th>Nome</th>
+      <th>Autor</th>
+      <th>Edição</th>
+      <th>Editar</th>
+      <th>Remover</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="book, iStat :  ${data?.content}">
+      <td><img th:src="${book?.url}"/></td>
+      <td th:text="${book?.name}"></td>
+      <td th:text="${book?.author}"></td>
+      <td th:text="${book?.edition}"></td>
+      <td>
+        <a th:href="@{/admin/console/book/edit/{page}(page=${book.id})}"
+           class="waves-effect waves-light btn"><i class="material-icons left">create</i></a>
+      </td>
+      <td>
+        <a th:href="@{/admin/console/book/remove/{page}(page=${book.id})}"
+           class="waves-effect waves-light btn remove"><i class="material-icons left">remove</i></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div th:replace="~{components/pagination :: pagination}"></div>
+  <div class="fixed-action-btn">
+    <a href="/admin/console/book/add" class="btn-floating btn-large red">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>
+</div>

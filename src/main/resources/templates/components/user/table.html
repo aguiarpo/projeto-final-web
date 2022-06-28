@@ -1,0 +1,23 @@
+<div th:fragment="tableUser" th:case="'USER'">
+    <div>
+        <input name="username" placeholder="Pesquisar por Email" id="email" type="text">
+    </div>
+    <table class="responsive-table">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Tipo</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="user, iStat :  ${data?.content}">
+            <td th:text="${user?.name}"></td>
+            <td th:text="${user?.email}"></td>
+            <td th:text="${user?.type}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div th:replace="~{components/pagination :: pagination}"></div>
+</div>

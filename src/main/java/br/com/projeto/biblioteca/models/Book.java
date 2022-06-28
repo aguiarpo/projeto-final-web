@@ -21,12 +21,14 @@ public class Book {
     private String name;
     private String author;
     private Byte edition;
-    @ManyToMany
+    private String url;
+    //private Integer quant = 1;
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "genres_books",
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id"))
     private List<Genre> genres = new ArrayList<Genre>();
-    @OneToMany(mappedBy = "book")
+    @OneToMany(mappedBy = "book", cascade = CascadeType.REMOVE)
     private List<Loan> loans = new ArrayList<Loan>();
 }

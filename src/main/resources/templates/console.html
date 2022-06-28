@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{components/base :: head('Console')}"></head>
+<link type="text/css" rel="stylesheet" th:href="@{/css/console.css}">
+<body>
+    <main>
+        <section>
+            <div class="collection">
+                <a href="/admin/console/user" th:classappend="${console == 'USER' ? 'active' : ''}" class="collection-item">Usuários</a>
+                <a href="/admin/console/book"
+                   th:classappend="${console == 'BOOK' || console == 'ADD-BOOK' || console == 'EDIT-BOOK' ? 'active' : ''}" class="collection-item">Livros</a>
+                <a href="/admin/console/genre"
+                   th:classappend="${console == 'GENRE' || console == 'ADD-GENRE' || console == 'EDIT-GENRE' ? 'active' : ''}" class="collection-item">Gêneros</a>
+                <a th:classappend="${console == 'LOAN' ? 'active' : ''}" href="/admin/console/loan" class="collection-item">Empréstimos</a>
+            </div>
+            <a onclick="document.querySelector('#form-login').submit()"
+               sec:authorize="isAuthenticated()" href="#!" class="collection-item logout">Logout</a>
+            <form id="form-login" th:action="@{/logout}" method="post"></form>
+        </section>
+        <section th:insert="~{components/tables :: table}" th:switch="${console}">
+
+        </section>
+    </main>
+</body>
+</html>

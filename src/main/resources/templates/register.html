@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{components/base :: head('Registrar')}"></head>
+<link type="text/css" rel="stylesheet" th:href="@{/css/login.css}">
+<body>
+<main>
+    <section>
+        <article>
+            <form th:action="@{/register/create}" th:object="${user}" class="col s12" method="post">
+                <article>
+                    <span>CADASTRAR</span>
+                </article>
+                <div>
+                    <input th:field="*{name}" th:errorclass="invalid"  placeholder="Nome" id="name" type="text">
+                    <label for="name">Nome</label>
+                </div>
+                <div class="alert"  th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                <div>
+                    <input th:field="*{email}" th:errorclass="invalid"  placeholder="Email" id="email" type="text">
+                    <label for="email">Email</label>
+                </div>
+                <div class="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                <div>
+                    <input th:field="*{password}" th:errorclass="invalid"  placeholder="Senha" id="password" type="password" >
+                    <label for="password">Senha</label>
+                </div>
+                <div class="alert" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                <a href="/login">Logar</a>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+        </article>
+    </section>
+    <section>
+        <img th:src="@{/image/login.jpg}"/>
+    </section>
+</main>
+</body>
+</html>

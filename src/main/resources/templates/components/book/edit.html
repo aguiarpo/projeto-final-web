@@ -1,0 +1,45 @@
+<div th:fragment="editBook" th:case="'EDIT-BOOK'">
+  <form th:action="@{/admin/console/book/edit}" th:object="${book}" class="col s12" method="post">
+    <div>
+      <input th:field="*{id}" th:errorclass="invalid" hidden id="id" type="text">
+    </div>
+    <div>
+      <input th:field="*{name}" th:errorclass="invalid"  placeholder="Nome" id="nameBook" type="text">
+      <label for="nameBook">Nome</label>
+    </div>
+    <div class="alert"  th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    <div>
+      <input th:field="*{author}" th:errorclass="invalid"  placeholder="Autor" id="authorBook" type="text">
+      <label for="authorBook">Autor</label>
+    </div>
+    <div class="alert"  th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></div>
+    <div class="juntar">
+      <input th:field="*{edition}" th:errorclass="invalid"  placeholder="Edição" id="editionBook" type="number">
+      <label for="editionBook">Edição</label>
+      <label id="yearLabel" for="yearBook">Ano</label>
+      <input th:field="*{year}" th:errorclass="invalid" placeholder="Ano" id="yearBook" type="number">
+    </div>
+    <div class="alert"  th:if="${#fields.hasErrors('edition')}" th:errors="*{edition}"></div>
+    <div class="alert"  th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></div>
+    <div>
+      <input th:field="*{barcode}" th:errorclass="invalid"  placeholder="Código de Barras" id="barcodeBook" type="number">
+      <label for="barcodeBook">Código de Barras</label>
+    </div>
+    <div class="alert"  th:if="${#fields.hasErrors('barcode')}" th:errors="*{barcode}"></div>
+    <div class="input-field col s12">
+      <select th:field="*{genres}" multiple>
+        <option value="" disabled selected>Gêneros</option>
+        <option th:each="genre, iStat :  ${data}" th:selected="${genre?.id == genres?.id}"  th:value="${genre?.id}" th:text="${genre?.name}"></option>
+      </select>
+      <div class="alert"  th:if="${#fields.hasErrors('genres')}" th:errors="*{genres}"></div>
+    </div>
+    <div>
+      <input th:field="*{url}" th:errorclass="invalid"  placeholder="Url" id="url" type="text">
+      <img id="carregarImg" src=""/>
+    </div>
+    <div class="alert"  th:if="${#fields.hasErrors('url')}" th:errors="*{url}"></div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+      <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>

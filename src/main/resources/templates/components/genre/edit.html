@@ -1,0 +1,15 @@
+<div th:fragment="editGenre" th:case="'EDIT-GENRE'">
+  <form th:action="@{/admin/console/genre/edit}" th:object="${genre}" class="col s12" method="post">
+    <div>
+      <input th:field="*{id}" th:errorclass="invalid" hidden id="id" type="text">
+    </div>
+    <div>
+      <input th:field="*{name}" th:errorclass="invalid"  placeholder="Nome" id="name2" type="text">
+      <label for="name2">Nome</label>
+    </div>
+    <div class="alert"  th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+      <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>

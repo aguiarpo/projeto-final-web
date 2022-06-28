@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{components/base :: head('Livros')}"></head>
+<link type="text/css" rel="stylesheet" th:href="@{/css/books.css}">
+<body>
+<header th:replace="~{components/base :: header}"></header>
+<main>
+    <section><span class="genero" th:text="${genre?.name}"></span></section>
+    <section>
+        <article th:href="@{/book/{page}(page=${book?.id})}" class="article" th:each="book, iStat : ${books}">
+            <div><img th:src="${book?.url}"></div>
+            <div><span class="title">Nome:</span><span th:text="' ' + ${book?.name}"></span></div>
+            <div><span class="title">Autor:</span><span th:text="' ' + ${book?.author}"></span></div>
+            <div><span class="title">Edição:</span><span th:text="' ' + ${book?.edition}"></span></div>
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Empréstimo</a>
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <span>DESEJA REALMENTE FAZER O EMPRÉSTIMO</span>
+                    <span>Livro:</span><span th:text="' ' + ${book?.name}"></span>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Desitir</a>
+                    <a th:href="@{/book/loan/{page}(page=${book?.id})}" class="modal-action modal-close waves-effect waves-green btn-flat">Continuar</a>
+                </div>
+            </div>
+        </article>
+    </section>
+</main>
+</body>
+</html>

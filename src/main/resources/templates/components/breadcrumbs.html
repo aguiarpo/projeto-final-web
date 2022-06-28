@@ -1,0 +1,13 @@
+<nav th:fragment="breadcrumbs">
+  <div class="nav-wrapper">
+    <div class="col s12">
+      <a th:if="${console == 'USER'}" href="/admin/console/user" class="breadcrumb">Usuários</a>
+      <a th:if="${console == 'LOAN'}" href="/admin/console/loan" class="breadcrumb">Empréstimos</a>
+      <a th:if="${console == 'BOOK' || console == 'ADD-BOOK' || console == 'EDIT-BOOK'}"
+         href="/admin/console/book" class="breadcrumb">Livros</a>
+      <a th:if="${console == 'ADD-BOOK' || console == 'ADD-GENRE'}" href="/admin/console/book/add" class="breadcrumb">Adicionar</a>
+      <a th:if="${console == 'GENRE' || console == 'ADD-GENRE' || console == 'EDIT-GENRE'}" href="/admin/console/genre" class="breadcrumb">Gêneros</a>
+      <a th:if="${console == 'EDIT-GENRE' || console == 'EDIT-BOOK'}" href="#!" class="breadcrumb">Editar</a>
+    </div>
+  </div>
+</nav>

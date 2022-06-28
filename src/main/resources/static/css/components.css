@@ -1,0 +1,10 @@
+nav{
+    position: fixed!important;
+    z-index: 1000;
+    padding-left: 20px;
+}
+
+nav, footer, .section, p{
+    background-color: #232528!important;
+    color: white;
+}

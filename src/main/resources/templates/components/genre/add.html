@@ -1,0 +1,12 @@
+<div th:fragment="addGenre" th:case="'ADD-GENRE'">
+  <form th:action="@{/admin/console/genre/add}" th:object="${genre}" class="col s12" method="post">
+    <div>
+      <input th:field="*{name}" th:errorclass="invalid"  placeholder="Nome" id="name" type="text">
+      <label for="name">Nome</label>
+    </div>
+    <div class="alert"  th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+      <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
